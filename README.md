@@ -80,6 +80,8 @@ The following cargo features are available. Only `substr` is on by default curre
 
     Without this, if you use `Substr` and an index would overflow a `u32` we unceremoniously panic.
 
+- `pyo3` (off by default): enable pyo3 conversion of `ArcStr`.
+
 ## Use of `unsafe` and testing strategy
 
 While this crate does contain a decent amount of unsafe code, we justify this in the following ways:

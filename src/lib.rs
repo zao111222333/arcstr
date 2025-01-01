@@ -76,6 +76,8 @@ pub use core;
 #[macro_use]
 mod mac;
 mod arc_str;
+#[cfg(feature = "pyo3")]
+mod impl_pyo3;
 #[cfg(feature = "serde")]
 mod impl_serde;
 pub use arc_str::ArcStr;
