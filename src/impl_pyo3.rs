@@ -1,7 +1,7 @@
+use super::alloc::string::ToString;
 use super::ArcStr;
 #[cfg(feature = "substr")]
 use super::Substr;
-
 use core::convert::Infallible;
 use pyo3::{prelude::*, types::PyString};
 
@@ -41,14 +41,14 @@ impl pyo3_stub_gen::PyStubType for ArcStr {
     #[inline]
     fn type_input() -> pyo3_stub_gen::TypeInfo {
         pyo3_stub_gen::TypeInfo {
-            name: "str".to_owned(),
+            name: "str".to_string(),
             import: Default::default(),
         }
     }
     #[inline]
     fn type_output() -> pyo3_stub_gen::TypeInfo {
         pyo3_stub_gen::TypeInfo {
-            name: "str".to_owned(),
+            name: "str".to_string(),
             import: Default::default(),
         }
     }
@@ -94,14 +94,14 @@ impl pyo3_stub_gen::PyStubType for Substr {
     #[inline]
     fn type_input() -> pyo3_stub_gen::TypeInfo {
         pyo3_stub_gen::TypeInfo {
-            name: "str".to_owned(),
+            name: "str".to_string(),
             import: Default::default(),
         }
     }
     #[inline]
     fn type_output() -> pyo3_stub_gen::TypeInfo {
         pyo3_stub_gen::TypeInfo {
-            name: "str".to_owned(),
+            name: "str".to_string(),
             import: Default::default(),
         }
     }
