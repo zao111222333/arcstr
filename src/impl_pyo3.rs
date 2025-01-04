@@ -37,6 +37,23 @@ impl<'py> FromPyObject<'py> for ArcStr {
     }
 }
 
+impl pyo3_stub_gen::PyStubType for ArcStr {
+    #[inline]
+    fn type_input() -> pyo3_stub_gen::TypeInfo {
+        pyo3_stub_gen::TypeInfo {
+            name: "str".to_owned(),
+            import: Default::default(),
+        }
+    }
+    #[inline]
+    fn type_output() -> pyo3_stub_gen::TypeInfo {
+        pyo3_stub_gen::TypeInfo {
+            name: "str".to_owned(),
+            import: Default::default(),
+        }
+    }
+}
+
 // Same to https://docs.rs/pyo3/0.23.3/src/pyo3/conversions/std/string.rs.html#188-201
 #[cfg(feature = "substr")]
 impl<'py> IntoPyObject<'py> for Substr {
@@ -69,5 +86,23 @@ impl<'py> FromPyObject<'py> for Substr {
     #[inline]
     fn extract_bound(obj: &Bound<'py, PyAny>) -> PyResult<Self> {
         obj.downcast::<PyString>()?.to_cow().map(Substr::from)
+    }
+}
+
+#[cfg(feature = "substr")]
+impl pyo3_stub_gen::PyStubType for Substr {
+    #[inline]
+    fn type_input() -> pyo3_stub_gen::TypeInfo {
+        pyo3_stub_gen::TypeInfo {
+            name: "str".to_owned(),
+            import: Default::default(),
+        }
+    }
+    #[inline]
+    fn type_output() -> pyo3_stub_gen::TypeInfo {
+        pyo3_stub_gen::TypeInfo {
+            name: "str".to_owned(),
+            import: Default::default(),
+        }
     }
 }

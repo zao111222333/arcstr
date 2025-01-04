@@ -25,10 +25,12 @@ std = []
 default = ["substr"]
 substr = []
 substr-usize-indices = ["substr"]
+pyo3 = ["dep:pyo3", "dep:pyo3-stub-gen"]
 
 [dependencies]
 serde = { version = "1", default-features = false, optional = true }
 pyo3 = { version = "0.23", default-features = false, optional = true }
+pyo3-stub-gen = { version = "0.6.2", default-features = false, optional = true }
 
 [dev-dependencies]
 serde_test = { version = "1", default-features = false }
