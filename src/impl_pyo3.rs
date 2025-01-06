@@ -41,7 +41,7 @@ impl<'py> FromPyObject<'py> for ArcStr {
 impl PyStubType for ArcStr {
     #[inline]
     fn type_output() -> TypeInfo {
-        String::type_output()
+        PyString::type_output()
     }
 }
 
@@ -84,6 +84,6 @@ impl<'py> FromPyObject<'py> for Substr {
 impl PyStubType for Substr {
     #[inline]
     fn type_output() -> TypeInfo {
-        String::type_output()
+        PyString::type_output()
     }
 }
