@@ -1,9 +1,10 @@
-use super::alloc::string::ToString;
 use super::ArcStr;
 #[cfg(feature = "substr")]
 use super::Substr;
+
 use core::convert::Infallible;
 use pyo3::{prelude::*, types::PyString};
+use pyo3_stub_gen::{PyStubType, TypeInfo};
 
 // Same to https://docs.rs/pyo3/0.23.3/src/pyo3/conversions/std/string.rs.html#188-201
 impl<'py> IntoPyObject<'py> for ArcStr {
@@ -37,20 +38,10 @@ impl<'py> FromPyObject<'py> for ArcStr {
     }
 }
 
-impl pyo3_stub_gen::PyStubType for ArcStr {
+impl PyStubType for ArcStr {
     #[inline]
-    fn type_input() -> pyo3_stub_gen::TypeInfo {
-        pyo3_stub_gen::TypeInfo {
-            name: "str".to_string(),
-            import: Default::default(),
-        }
-    }
-    #[inline]
-    fn type_output() -> pyo3_stub_gen::TypeInfo {
-        pyo3_stub_gen::TypeInfo {
-            name: "str".to_string(),
-            import: Default::default(),
-        }
+    fn type_output() -> TypeInfo {
+        String::type_output()
     }
 }
 
@@ -90,19 +81,9 @@ impl<'py> FromPyObject<'py> for Substr {
 }
 
 #[cfg(feature = "substr")]
-impl pyo3_stub_gen::PyStubType for Substr {
+impl PyStubType for Substr {
     #[inline]
-    fn type_input() -> pyo3_stub_gen::TypeInfo {
-        pyo3_stub_gen::TypeInfo {
-            name: "str".to_string(),
-            import: Default::default(),
-        }
-    }
-    #[inline]
-    fn type_output() -> pyo3_stub_gen::TypeInfo {
-        pyo3_stub_gen::TypeInfo {
-            name: "str".to_string(),
-            import: Default::default(),
-        }
+    fn type_output() -> TypeInfo {
+        String::type_output()
     }
 }
